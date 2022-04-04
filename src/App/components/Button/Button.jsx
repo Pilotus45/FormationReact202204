@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import './Button.scss';
+import style from "./Button.module.scss";
 import PropTypes from 'prop-types';
 
 function Button(props) {
@@ -18,7 +18,7 @@ function Button(props) {
                     setClicked(true);
                     props.buttonClicked("Hello");
                 }}
-                className="Button"
+                className={`${style.Button}${clicked?' '+style.clicked:''}`}
                 style={{...props.appStyle, backgroundColor: props.bgColor, color: props.color}}>
             {props.children ? props.children : props.text}<br/>
             {clicked ? 'clicked':'unclicked'}
