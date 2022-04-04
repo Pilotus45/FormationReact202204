@@ -1,15 +1,27 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import './Button.scss';
 import PropTypes from 'prop-types';
 
 function Button(props) {
+    const [clicked, setClicked] = useState(false);
+    useEffect(() => {
+        if(clicked) {
+            setTimeout(() => {setClicked(false)}, 1000);
+        }
+    }, [clicked]);
+    // ngOnInit
+    useEffect(() => {
+        console.log("Mounted!")
+    }, []);
     return (
-        <button 
-        onClick={(evt) => {
-            props.buttonClicked("Hello");
-        }}
-        className="Button" style={{...props.appStyle, backgroundColor: props.bgColor, color: props.color}}>
-        {props.children ? props.children : props.text}
+        <button onClick={(evt) => {
+                    setClicked(true);
+                    props.buttonClicked("Hello");
+                }}
+                className="Button"
+                style={{...props.appStyle, backgroundColor: props.bgColor, color: props.color}}>
+            {props.children ? props.children : props.text}<br/>
+            {clicked ? 'clicked':'unclicked'}
         </button>
     );
 }
