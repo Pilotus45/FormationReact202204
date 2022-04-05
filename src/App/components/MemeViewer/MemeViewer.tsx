@@ -1,7 +1,7 @@
-import React, {Component, useState} from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import style from './MemeViewer.module.scss'
 import I_Meme, { I_Image } from '../../interfaces/meme';
+import { connect } from 'react-redux';
 
 interface I_MemeViewerProps {
   meme:I_Meme;
@@ -24,4 +24,17 @@ const MemeViewer:React.FC<I_MemeViewerProps> = (props) => {
   );
 };
 
-export default MemeViewer;
+function mapStateToProps(storeState:any, ownProps:any) {
+  return {
+    ...ownProps,
+    meme: storeState.current,
+    image: storeState.ressources.images.find((e:I_Image)=>e.id===storeState.current.imageId)
+  };
+}
+
+function mapDispatchToProps(dispatch:Function) {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (MemeViewer);
+export const unconnectedMemeViewer=MemeViewer;

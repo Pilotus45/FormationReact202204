@@ -1,5 +1,6 @@
 export default interface I_Meme {
     id?:number
+    titre:string
     text:string
     x:number
     y:number
@@ -13,6 +14,7 @@ export default interface I_Meme {
 
 export const DummyMeme:I_Meme={
     text:"Hello World",
+    titre:"Bender",
     x:50,
     y:100,
     fontWeight:'900',
