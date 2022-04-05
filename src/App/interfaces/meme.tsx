@@ -8,6 +8,7 @@ export default interface I_Meme {
     underline:boolean
     italic:boolean
     imageId:number
+    color:string
 };
 
 export const DummyMeme:I_Meme={
@@ -18,7 +19,8 @@ export const DummyMeme:I_Meme={
     fontSize:30,
     underline:true,
     italic:false,
-    imageId:0
+    imageId:0,
+    color:'#ACEBA0'
 };
 
 export interface I_Image {

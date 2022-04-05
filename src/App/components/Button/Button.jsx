@@ -21,8 +21,18 @@ function Button(props) {
                 className={`${style.Button}${clicked?' '+style.clicked:''}`}
                 style={{...props.appStyle, backgroundColor: props.bgColor, color: props.color}}>
             {props.children ? props.children : props.text}<br/>
+        </button>
+        /*
+        <button onClick={(evt) => {
+                    setClicked(true);
+                    props.buttonClicked("Hello");
+                }}
+                className={`${style.Button}${clicked?' '+style.clicked:''}`}
+                style={{...props.appStyle, backgroundColor: props.bgColor, color: props.color}}>
+            {props.children ? props.children : props.text}<br/>
             {clicked ? 'clicked':'unclicked'}
         </button>
+        */
     );
 }
 

@@ -1,0 +1,25 @@
+{
+    "memes": [
+        {
+            "id": 0,
+            "text":"Hello World",
+            "x":50,
+            "y":100,
+            "fontWeight":"900",
+            "fontSize":30,
+            "underline":true,
+            "italic":false,
+            "imageId":0,
+            "color":"#ACEBA0"
+        }
+    ],
+    "images": [
+        {
+            "id": 0,
+            "url":"bender.png",
+            "w":800,
+            "h":1461,
+            "name":"bender"
+        }
+    ]
+}
