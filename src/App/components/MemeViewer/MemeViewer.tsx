@@ -10,7 +10,7 @@ interface I_MemeViewerProps {
 
 const MemeViewer:React.FC<I_MemeViewerProps> = (props) => {
   return (
-    <svg className={style.MemeViewer} data-testid="MemeViewer" viewBox={`0 0 ${props.image ? props.image.w :'500'} ${props.image ? props.image.h :'500'}`}>
+    <svg className={style.MemeViewer} data-testid="MemeViewer" viewBox={`0 0 ${props.image ? props.image.w :'1000'} ${props.image ? props.image.h :'1000'}`}>
         {undefined!==props.image && <image href={props.image.url} x="0" y="0" />}
         <text 
           x={props.meme.x} 
@@ -28,7 +28,7 @@ function mapStateToProps(storeState:any, ownProps:any) {
   return {
     ...ownProps,
     meme: storeState.current,
-    image: storeState.ressources.images.find((e:I_Image)=>e.id===storeState.current.imageId)
+    image: storeState.ressources.images.find((e:I_Image)=>e.id===parseInt(storeState.current.imageId))
   };
 }
 

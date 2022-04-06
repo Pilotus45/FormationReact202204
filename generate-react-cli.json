@@ -30,6 +30,16 @@
       "customTemplates": {
         "component": "grc_templates/funcLayout/TemplateName.js"
       }
+    },
+    "connectedFunc": {
+      "path": "src/App/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false,
+      "customTemplates": {
+        "component": "grc_templates/connectedFunc/TemplateName.tsx"
+      }
     }
   }
 }

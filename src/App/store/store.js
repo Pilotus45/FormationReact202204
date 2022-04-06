@@ -20,7 +20,9 @@ function ressourcesReducer(state = initialRessourcesState, action) {
     case RessourcesActions.ADD_INIT_MEMES:
       return { ...state, memes: action.values };
     case RessourcesActions.ADD_MEME:
-      return { ...state, memes: [...state.memes, action.value] };
+      const pos=state.memes.findIndex(m=>m.id===action.value.id);
+      if(pos<0){return { ...state, memes: [...state.memes, action.value] };}
+      else {return { ...state, memes: [...state.memes.slice(0,pos-1), action.value, ...state.memes.slice(pos)] };}      
     //gestion de l'init des values async
     case "ADD_INIT_ALL":
       return { ...state, memes: action.memes, images: action.images };
@@ -40,12 +42,22 @@ function ressourcesReducer(state = initialRessourcesState, action) {
   }
 }
 
-function modalReducer(state = { isShown: false, content: "" }, action) {
+function modalReducer(state = { isShown: true,title:'Bienvenue', content: <div>Bienvenu sur meme generator</div> , closeCallback:()=>console.log('Hello closed')}, action) {
   switch (action.type) {
     case "SHOW_MODAL":
-      return { isShown: true, content: action.value };
+      return {
+        isShown: true,
+        title:action.title,
+        content: action.value,
+        closeCallback: action.callback,
+      };
     case "HIDE_MODAL":
+      if (state.closeCallback && typeof state.closeCallback === "function") {
+        state.closeCallback();
+      }
       return { isShown: false, content: "" };
+    case "CANCEL_MODAL":
+      return state;
     default:
       return state;
   }
@@ -66,8 +78,8 @@ function currentReducer(state = DummyMeme, action) {
       return { ...state, ...action.value };
 
     case CURRENT_ACTIONS.SAVE_CURRENT:
-      fetch(`${REST_SRV_BASE_URL}/memes`, {
-        method: "POST",
+      fetch(`${REST_SRV_BASE_URL}/memes${undefined!==state.id?'/'+state.id:''}`, {
+        method: `${undefined!==state.id?'PUT':'POST'}`,
         headers: {
           "Content-Type": "application/json",
         },
