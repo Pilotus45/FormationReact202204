@@ -10,7 +10,7 @@ interface I_MemeViewerProps {
 
 const MemeViewer:React.FC<I_MemeViewerProps> = (props) => {
   return (
-    <svg className={style.MemeViewer} data-testid="MemeViewer" viewBox={`0 0 ${props.image ? props.image.w :'1000'} ${props.image ? props.image.h :'1000'}`}>
+    <svg className={style.MemeViewer} data-testid="MemeViewer" viewBox={`0 0 ${props.image ? props.image.w :'500'} ${props.image ? props.image.h :'500'}`}>
         {undefined!==props.image && <image href={props.image.url} x="0" y="0" />}
         <text 
           x={props.meme.x} 

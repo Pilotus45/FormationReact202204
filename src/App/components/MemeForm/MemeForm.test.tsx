@@ -6,7 +6,7 @@ import { DummyMeme } from '../../interfaces/meme';
 
 describe('<MemeForm />', () => {
   test('it should mount', () => {
-    render(<UCMemeForm images={[]} currentMeme={DummyMeme} onInputValueChange={() => {}} />);
+    render(<UCMemeForm images={[]} currentMeme={DummyMeme} onInputValueChange={() => {}} onReset={() => {}} onMemeSubmit={() => {}} />);
     
     const memeForm = screen.getByTestId('MemeForm');
 

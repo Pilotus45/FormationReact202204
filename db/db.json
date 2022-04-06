@@ -1,25 +1,65 @@
 {
-    "memes": [
-        {
-            "id": 0,
-            "text":"Hello World",
-            "x":50,
-            "y":100,
-            "fontWeight":"900",
-            "fontSize":30,
-            "underline":true,
-            "italic":false,
-            "imageId":0,
-            "color":"#ACEBA0"
-        }
-    ],
-    "images": [
-        {
-            "id": 0,
-            "url":"bender.png",
-            "w":800,
-            "h":1461,
-            "name":"bender"
-        }
-    ]
+  "memes": [
+    {
+      "id": 0,
+      "text": "Hello World",
+      "x": 50,
+      "y": 100,
+      "fontWeight": "900",
+      "fontSize": 30,
+      "underline": true,
+      "italic": false,
+      "imageId": 0,
+      "color": "#ACEBA0"
+    },
+    {
+      "text": "Good news!",
+      "titre": "Bender",
+      "x": 50,
+      "y": 100,
+      "fontWeight": "900",
+      "fontSize": 30,
+      "underline": true,
+      "italic": false,
+      "imageId": 1,
+      "color": "#ACEBA0",
+      "id": 1
+    },
+    {
+      "text": "Hello World",
+      "titre": "Bender",
+      "x": 50,
+      "y": 100,
+      "fontWeight": "900",
+      "fontSize": 30,
+      "underline": true,
+      "italic": false,
+      "imageId": 2,
+      "color": "#ACEBA0",
+      "id": 2
+    }
+  ],
+  "images": [
+    {
+      "id": 0,
+      "url": "img/bender.png",
+      "w": 250,
+      "h": 457,
+      "name": "bender"
+    },
+    {
+      "id": 1,
+      "url": "img/farnsworth.jpg",
+      "w": 800,
+      "h": 566,
+      "name": "farnsworth"
+    },
+    {
+      "id": 2,
+      "url": "img/zoidberg.jpg",
+      "w": 669,
+      "h": 500,
+      "name": "zoidberg"
+    }
+  ]
 }

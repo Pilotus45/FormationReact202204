@@ -1,10 +1,10 @@
-.MemeViewer {
+.MemeThumbnail {
     padding: 10px 20px;
     display:flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-.MemeViewer>svg {
+.MemeThumbnail>svg {
     max-width: 22vw;
 }

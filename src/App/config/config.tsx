@@ -1,1 +1,1 @@
-export const SERVER_URL='http://localhost:6259'
+export const REST_SRV_BASE_URL='http://localhost:6259'

@@ -8,12 +8,17 @@ interface I_MemeFormProps {
   currentMeme: I_Meme;
   images: Array<I_Image>;
   onInputValueChange: Function;
+  onReset:Function;
+  onMemeSubmit:Function;
 }
 
 const MemeForm: Render<I_MemeFormProps> = (props) => {
   return (
     <div data-testid="MemeForm" className={style.MemeForm}>
-      <form>
+      <form onSubmit={(evt) => {
+          evt.preventDefault();
+          props.onMemeSubmit();
+        }}>
         <h1>Titre</h1>
         <input type="text" id="f_titre" placeholder="saisir titre" value={props.currentMeme.titre} onChange={
           evt => { props.onInputValueChange({ titre: evt.target.value }) }
@@ -126,7 +131,7 @@ const MemeForm: Render<I_MemeFormProps> = (props) => {
           </div>
         </div>
         <div className={style.half}>
-          <Button type="reset" bgColor="tomato">
+          <Button type="reset" bgColor="tomato" buttonClicked={() => props.onReset()}>
             clear
           </Button>
           <Button type="submit" bgColor="skyblue">
@@ -147,7 +152,9 @@ function mapStateToProps(storeState:any, ownProps:any) {
 
 function mapDispatchToProps(dispatch:Function) {
   return {
-    onInputValueChange:(memeValuesToChange:object) => dispatch({type: 'UPDATE_CURRENT', value:memeValuesToChange})
+    onInputValueChange:(memeValuesToChange:object) => dispatch({type: 'UPDATE_CURRENT', value:memeValuesToChange}),
+    onMemeSubmit:() => dispatch({type: 'SAVE_CURRENT'}),
+    onReset:() => dispatch({type:'RESET_CURRENT'})
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MemeForm);
